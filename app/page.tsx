@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -32,4 +31,18 @@ export default function Home() {
       <input
         type="text"
         placeholder="Novo hábito"
-        value
+        value={newHabit}
+        onChange={(e) => setNewHabit(e.target.value)}
+        style={{ width: "100%", padding: "0.5rem", marginBottom: "1rem" }}
+      />
+      <button onClick={addHabit} style={{ padding: "0.5rem 1rem" }}>
+        Adicionar
+      </button>
+      <ul>
+        {habits.map((habit) => (
+          <li key={habit.id}>{habit.name}</li>
+        ))}
+      </ul>
+    </main>
+  );
+}
